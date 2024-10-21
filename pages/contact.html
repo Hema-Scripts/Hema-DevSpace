@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me - Hema</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom right, #000, #3f003f); /* Dark background gradient */
+            color: #fff;
+            animation: fadeIn 1s ease-in-out; /* Fade-in effect */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            text-align: center;
+            background: linear-gradient(to bottom right, #1a1a1a, #2d2d2d); /* Dark gradient container */
+            box-shadow: 0 4px 20px rgba(128, 0, 128, 0.6); /* Violet shadow */
+            border-radius: 10px;
+            width: 90%; /* Make it responsive */
+            animation: slideIn 0.5s ease-in-out; /* Slide-in effect */
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        h1 {
+            color: #9400D3; /* Deep Violet Title */
+            font-size: 36px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for h1 */
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        /* Contact Form Styling */
+        form {
+            margin-top: 30px;
+            animation: fadeIn 1s ease-in-out; /* Fade-in effect for form */
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea,
+        select {
+            width: 100%;
+            max-width: 100%; /* Ensure it doesn't exceed container */
+            padding: 15px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            background: linear-gradient(to right, #333, #555); /* Gradient input fields */
+            color: #fff;
+            font-size: 16px;
+            outline: none;
+            box-sizing: border-box; /* Make padding included in width */
+            transition: background-color 0.3s; /* Transition effect */
+        }
+
+        textarea {
+            height: 150px;
+        }
+
+        input[type="submit"] {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            background: linear-gradient(to right, #9400D3, #d88bff); /* Gradient button */
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s; /* Transition for hover */
+        }
+
+        input[type="submit"]:hover {
+            background: linear-gradient(to right, #d88bff, #9400D3); /* Lighter violet on hover */
+            transform: scale(1.05); /* Slightly increase size on hover */
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 40px;
+        }
+
+        .contact-item {
+            flex: 1;
+            margin: 20px;
+            min-width: 250px; /* Ensure proper width on smaller screens */
+            text-align: left; /* Align text to the left */
+            position: relative; /* For positioning tooltip */
+        }
+
+        .contact-item i {
+            font-size: 40px;
+            margin-bottom: 15px;
+            color: #9400D3; /* Deep Violet icons */
+            transition: transform 0.3s; /* Add transition for icons */
+        }
+
+        .contact-item:hover i {
+            transform: scale(1.1); /* Scale effect on hover */
+        }
+
+        .tooltip {
+            position: absolute;
+            bottom: 100%; /* Position above the icon */
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            white-space: nowrap; /* Prevent line breaks */
+            visibility: hidden; /* Hidden by default */
+            opacity: 0; /* Transparent by default */
+            transition: visibility 0s, opacity 0.3s linear; /* Smooth transition */
+        }
+
+        .contact-item:hover .tooltip {
+            visibility: visible; /* Show tooltip on hover */
+            opacity: 1; /* Fade in tooltip */
+        }
+
+        .contact-item p {
+            font-size: 16px;
+            margin: 5px 0; /* Add margin to paragraphs */
+        }
+
+        .social-icons {
+            margin-top: 30px;
+        }
+
+        .social-icons a {
+            color: #9400D3;
+            margin: 0 10px;
+            font-size: 24px;
+            text-decoration: none;
+            transition: color 0.3s, transform 0.3s; /* Transition for hover */
+        }
+
+        .social-icons a:hover {
+            color: #d88bff; /* Lighter violet on hover */
+            transform: scale(1.1); /* Scale effect on hover */
+        }
+
+        /* Responsive Media Queries */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 28px;
+            }
+
+            .contact-item {
+                margin: 10px 0;
+            }
+
+            input[type="submit"] {
+                width: 100%;
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                width: 95%;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+
+            .contact-item i {
+                font-size: 32px;
+            }
+        }
+
+        /* Background Animation */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            animation: stars 50s linear infinite; /* Adjust speed */
+            background: url('path/to/your/starfield-image.jpg') no-repeat center center fixed;
+            background-size: cover; /* Make it cover the whole page */
+        }
+
+        @keyframes stars {
+            0% { background-position: 0 0; }
+            100% { background-position: 100% 100%; }
+        }
+
+        /* Footer Styling */
+        footer {
+            margin-top: 40px;
+            font-size: 14px;
+            color: #d88bff;
+            text-align: center;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+<div class="background"></div>
+
+<div class="container">
+    <h1>I'm Working on It – Contact Feature Coming Soon!</h1>
+    <h1>Contact Me</h1>
+    <p>If you have any questions or want to get in touch, feel free to reach out. I'd love to connect!</p>
+
+    <form action="your-backend-script.php" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <input type="text" name="subject" placeholder="Subject" required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <input type="submit" value="Send Message">
+    </form>
+
+    <!-- Contact Information -->
+    <div class="contact-info">
+        <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <span class="tooltip">hchandran90@gmail.com</span> <!-- Tooltip text -->
+        </div>
+        <div class="contact-item">
+            <a href="https://www.linkedin.com/in/hema-chandran-900a69281/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" style="color: #9400D3;">
+                <i class="fab fa-linkedin"></i>
+            </a>
+        </div>
+        <div class="contact-item">
+            <a href="https://github.com/Hema-Scripts" target="_blank" style="color: #9400D3;">
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
+        <div class="contact-item">
+            <a href="./404.html" target="_blank" style="color: #9400D3;">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="social-icons">
+        <h2>Follow Me</h2>
+        <a href="https://www.linkedin.com/in/hema-chandran-900a69281/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/Hema-Scripts" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="./404.html" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
+</div>
+
+<footer>
+  <p>&copy; <span id="current-year"></span> Hemachandran A S. All rights reserved.</p>
+</footer>
+<script>
+  // Get the current year
+  const currentYear = new Date().getFullYear();
+  // Set the year in the footer
+  document.getElementById('current-year').textContent = currentYear;
+</script>
+</body>
+</html>

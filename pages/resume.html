@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - Hema</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f4f4f9, #e0e0e0);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .resume-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .resume-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #5a5a97, #8a8ac8);
+            color: white;
+            padding: 20px;
+            border-radius: 12px 12px 0 0;
+        }
+
+        header h1 {
+            font-size: 36px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .tagline {
+            font-size: 20px;
+            margin-top: 5px;
+            font-weight: 300;
+        }
+
+        .resume-section {
+            margin-bottom: 20px;
+        }
+
+        .resume-section h2 {
+            font-size: 24px;
+            border-bottom: 2px solid #5a5a97;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+            color: #5a5a97;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .education, .experience, .skills, .certifications, .projects {
+            margin: 10px 0;
+            padding: 10px;
+            border-left: 5px solid #5a5a97;
+            background: rgba(250, 250, 250, 0.9);
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+
+        .education:hover, .experience:hover, .skills:hover, .certifications:hover, .projects:hover {
+            background: rgba(225, 225, 225, 0.9);
+        }
+
+        .education h3, .experience h3 {
+            font-size: 20px;
+            margin-bottom: 5px;
+            color: #5a5a97;
+        }
+
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 16px;
+            color: #5a5a97;
+        }
+
+        footer a {
+            color: #5a5a97;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+            color: #3a3a7a; /* Darker color on hover */
+        }
+
+        .contact-info p {
+            margin-bottom: 5px;
+        }
+
+        /* Icon styles */
+        .contact-info a {
+            text-decoration: none;
+            color: #5a5a97;
+        }
+
+        .contact-info a:hover {
+            color: #3a3a7a; /* Darker color on hover */
+        }
+
+        /* Back button styles */
+        .back-button {
+            display: inline-block;
+            margin: 10px 0;
+            padding: 10px 20px;
+            background-color: #5a5a97;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .back-button:hover {
+            background-color: #3a3a7a; /* Darker color on hover */
+        }
+        
+        /* Add some responsiveness */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 28px;
+            }
+            header .tagline {
+                font-size: 16px;
+            }
+            .resume-container {
+                padding: 15px;
+            }
+            .resume-section h2 {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <header>
+            <h1>Hemachandran A S</h1>
+            <p class="tagline">Cybersecurity Enthusiast | Data Analytics | Penetration Testing</p>
+            <div class="contact-info">
+                <p><strong>Email:</strong> <a style="color: white;" href="mailto:hchandran90@gmail.com">hchandran90@gmail.com</a></p>
+                <p><strong>LinkedIn:</strong> <a style="color: white;" href="https://www.linkedin.com/in/hema-chandran-900a69281?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">Profile</a></p>
+            </div>
+        </header>
+
+        <section class="resume-section">
+            <h2>Education</h2>
+            <div class="education">
+                <h3>Computer Science Engineering</h3>
+                <p><strong>Institution:</strong> IFET College Of Engineering</p>
+                <p><strong>Year:</strong> Final Year (2021-2025)</p>
+                <p><strong>CGPA:</strong> 7.50</p>
+                
+                <h3>Schooling:</h3>
+                <p><strong>School:</strong> St. Joseph</p>
+                <p><strong>10th Grade:</strong> 56%</p>
+                <p><strong>12th Grade:</strong> 89%</p>
+            </div>
+        </section>
+
+        <section class="resume-section">
+            <h2>Accomplishments</h2>
+            <div class="accomplishments">
+                <ul>
+                    <li>Identified and reported a critical vulnerability in the web application of my college, contributing to its improved security.</li>
+                    <li>Solved multiple Capture the Flag (CTF) challenges, enhancing my skills in ethical hacking and problem-solving.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="resume-section">
+            <h2>Skills</h2>
+            <div class="skills">
+                <ul>
+                    <li>Cybersecurity: Penetration Testing, Ethical Hacking</li>
+                    <li>Data Analytics: Python, SQL, Google Data Analytics</li>
+                    <li>Programming: Python, JavaScript, HTML/CSS</li>
+                    <li>Tools: Metasploit, Burp Suite, Wireshark, and others</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="resume-section">
+            <h2>Certifications</h2>
+            <div class="certifications">
+                <ul>
+                    <li>Ethical Hacking Fundamentals (EC-Council)</li>
+                    <li>Google Data Analytics Professional Certificate</li>
+                    <li>Bug Bounty Course</li>
+                    <li>CISCO CCNA</li>
+                    <li>Cybersecurity Certification</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="resume-section">
+            <h2>Projects</h2>
+            <div class="projects">
+                <ul>
+                    <li>
+                        <strong>Raspberry Pi Mini Server:</strong> Designed a server for real-time performance monitoring using Raspberry Pi, providing insights into system health and usage.
+                    </li>
+                    <li>
+                        <strong>WiFi Deauther:</strong> Completed a network testing project using NodeMCU ESP8266, demonstrating the ability to analyze and manage network security.
+                    </li>
+                    <li>
+                        <strong>Website Scraping:</strong> Conducted a web scraping project to gather data from various websites, utilizing Python libraries for data extraction and analysis.
+                    </li>
+                    <li>
+                        <strong>Raspberry Pi Zero W P4wnP1 A.L.O.A: USB & Wi-Fi Pentesting Platform:</strong> Built a portable pentesting tool with USB and Wi-Fi capabilities using Raspberry Pi.
+                    </li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Back Button -->
+        <button class="back-button" onclick="history.back()">Go Back</button>
+
+        <footer>
+            <p>&copy; 2024 Hemachandran A S</p>
+        </footer>
+    </div>
+</body>
+</html>

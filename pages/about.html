@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        /* Dark purple and gradient theme */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, rgba(15, 15, 50, 1) 0%, rgba(50, 0, 80, 1) 50%, rgba(75, 0, 130, 1) 100%);
+            color: #f2f2f2;
+            overflow-x: hidden;
+        }
+
+        /* Enhanced container with a more prominent dark purple border */
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+            border: 3px solid;
+            border-image: linear-gradient(to right, #800080, #4B0082, #240046) 1;
+            transition: transform 0.3s;
+        }
+
+        .container:hover {
+            transform: scale(1.03);
+        }
+
+        /* Header with dark purple accent */
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+            color: #ffcc00;
+            text-shadow: 4px 4px 12px rgba(0, 0, 0, 0.8);
+        }
+
+        h2, h3 {
+            color: #9400D3; /* Dark purple for headings */
+        }
+
+        section {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            border-left: 4px solid #800080;
+            transition: background 0.3s;
+        }
+
+        section:hover {
+            background: rgba(128, 0, 128, 0.2); /* Dark purple hover effect */
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+
+        a {
+            color: #ffcc00;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #ffcc99;
+        }
+
+        /* Smooth transitions */
+        h3::before {
+            content: '\f02b'; /* Font Awesome icon */
+            font-family: 'Font Awesome 5 Free';
+            padding-right: 8px;
+            color: #ffcc00;
+        }
+
+        .skills strong, .projects strong {
+            color: #ffcc99;
+        }
+
+        /* Custom scrollbar with dark purple gradient */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #4B0082, #800080);
+            border-radius: 10px;
+        }
+
+        /* Font Awesome Icons for visual effect */
+        .skills, .projects, .certifications {
+            display: flex;
+            align-items: center;
+        }
+
+        .skills i, .projects i, .certifications i {
+            margin-right: 10px;
+            color: #ffcc00;
+            font-size: 1.5rem;
+        }
+
+        footer p {
+            font-size: 1rem;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Collaboration Button Styles */
+        .back-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            background-color: #ffcc00;
+            color: #4B0082;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s, box-shadow 0.3s;
+            margin: 20px; /* Add some margin for spacing */
+        }
+
+        .back-btn:hover {
+            background-color: #ffcc99;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            h3 {
+                font-size: 1.5rem;
+            }
+
+            .back-btn {
+                padding: 8px 16px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>About Me</h1>
+            <button onclick="window.history.back()" class="back-btn">Back</button>
+        </header>
+        <section class="intro">
+            <h2>Hi there! I’m Hemachandran</h2>
+            <p>A final-year Computer Science Engineering student specializing in cybersecurity, programming, and data analytics. My journey in technology has been driven by a passion for innovation and a desire to create solutions that improve security and efficiency in various domains.</p>
+        </section>
+        <section class="background">
+            <h3>Background</h3>
+            <p>I’ve always been fascinated by technology and its potential to solve real-world problems. My journey began in high school, where I developed a passion for coding and problem-solving. Through my academic career, I have engaged in numerous projects that allowed me to blend my technical skills with creative problem-solving.</p>
+        </section>
+        <section class="interests">
+            <h3>Interests</h3>
+            <p>I’m particularly drawn to the fields of cybersecurity and ethical hacking. I love exploring how systems can be protected from threats while learning about vulnerabilities. My interests extend to IoT projects, where I leverage Raspberry Pi for automation and innovative solutions.</p>
+        </section>
+        <section class="skills">
+            <h3><i class="fas fa-tools"></i>Skills</h3>
+            <p><strong>Technical Skills:</strong> Python, JavaScript, HTML/CSS, SQL, ethical hacking tools (Metasploit, Burp Suite)</p>
+            <p><strong>Soft Skills:</strong> Problem-solving, teamwork, analytical thinking, adaptability</p>
+        </section>
+        <section class="projects">
+            <h3><i class="fas fa-project-diagram"></i>Projects</h3>
+            <ul>
+                <li><strong>Raspberry Pi Mini Server:</strong> Designed a server for real-time performance monitoring.</li>
+                <li><strong>Website Scraper:</strong> Developed a web scraping tool to extract and analyze data from websites using Python.</li>
+                <li><strong>WiFi Deauther:</strong> Created a WiFi deauthentication tool for network security testing.</li>
+                <li><strong>Raspberry Pi ALOA Project:</strong> Developed a custom-built project using Raspberry Pi Zero 2 W for automation and IoT applications, focusing on vulnerability testing and enabling automated scripts to be executed seamlessly.</li>
+            </ul>
+        </section>
+        <section class="internship">
+            <h3>Internship Search</h3>
+            <p>I am actively seeking internship opportunities in cybersecurity, ethical hacking, and penetration testing. My goal is to apply my skills and knowledge in a real-world environment, further enhancing my expertise while contributing to innovative projects.</p>
+            <p>Feel free to reach out if you have any leads or opportunities!</p>
+        </section>
+        <footer>
+            <p>Connect with me on <a href="https://github.com/Hema-Scripts">GitHub</a> | <a href="https://www.linkedin.com/in/hema-chandran-900a69281/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">LinkedIn</a> | <a href="./404.html">Instagram</a></p>
+            <p>&copy; Copy Right Hemachandran A S. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

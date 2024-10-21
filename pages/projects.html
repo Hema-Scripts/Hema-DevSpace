@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Hema</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            animation: gradientBackground 10s infinite; /* Animation for dynamic gradient background */
+        }
+
+        @keyframes gradientBackground {
+            0% { background: linear-gradient(135deg, #4b0082, #1e1e1e); }
+            25% { background: linear-gradient(135deg, #ff007f, #4b0082); }
+            50% { background: linear-gradient(135deg, #00c6ff, #ff007f); }
+            75% { background: linear-gradient(135deg, #1e1e1e, #00c6ff); }
+            100% { background: linear-gradient(135deg, #4b0082, #1e1e1e); }
+        }
+
+        .projects-container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: rgba(30, 30, 30, 0.9);
+            box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        h1 {
+            text-align: center;
+            color: #ffcc00;
+            margin-bottom: 30px;
+            font-size: 36px;
+            text-transform: uppercase;
+        }
+
+        .back-button {
+            display: block;
+            background-color: #ffcc00;
+            color: #2d2d2d;
+            text-align: center;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            margin: 20px auto;
+            max-width: 200px;
+            transition: background-color 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: #e6b800;
+        }
+
+        .project {
+            margin-bottom: 50px;
+            padding: 20px;
+            border-radius: 10px;
+            transition: transform 0.3s;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 30px rgba(255, 255, 255, 0.2);
+        }
+
+        .project-title {
+            font-size: 28px;
+            color: #ffcc00;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 2px #000;
+        }
+
+        .slider {
+            position: relative;
+            max-width: 800px;
+            margin: auto;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .slides img {
+            width: 100%;
+            border-radius: 8px;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slides {
+            display: none;
+        }
+
+        .active-slide {
+            display: block;
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+            user-select: none;
+            transform: translateY(-50%);
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+            color: #000;
+        }
+
+        .prev { left: 10px; }
+        .next { right: 10px; }
+
+        .project-details {
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+        }
+
+        .project-details:hover {
+            transform: scale(1.02);
+        }
+
+        .project-details h3 {
+            color: #ffcc00;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 2px #000;
+        }
+
+        .project-details p {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .project-details ul {
+            padding-left: 20px;
+            list-style: none; /* Remove default list style */
+        }
+
+        .project-details ul li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .project-details ul li i {
+            color: #ffcc00;
+            margin-right: 10px;
+            font-size: 20px;
+        }
+
+        /* Additional styling for the footer */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+            color: #ffcc00;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footer a {
+            color: #ffcc00;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 18px;
+        }
+
+        .footer a:hover {
+            color: white;
+        }
+
+        .footer i {
+            margin: 0 5px;
+            transition: transform 0.3s;
+        }
+
+        .footer i:hover {
+            transform: scale(1.2);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .projects-container {
+                padding: 10px;
+            }
+
+            .project-title {
+                font-size: 24px;
+            }
+
+            .project-details h3 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="projects-container">
+    <button class="back-button"><a href="../index.html">Back to Homepage</a></button>
+    <h1>My Projects</h1>
+
+    <!-- Project 1 -->
+    <div class="project">
+        <h2 class="project-title">Raspberry Pi Mini Server</h2>
+        <div class="slider" id="slider1">
+            <div class="slides active-slide">
+                <img src="https://www.cnx-software.com/wp-content/uploads/2021/07/DIY-Raspberry-Pi-4-mini-server.jpg" alt="Raspberry Pi Server Image 1">
+            </div>
+            <div class="slides">
+                <img src="https://www.cnx-software.com/wp-content/uploads/2021/07/mini-server-oled-display-ups.jpg" alt="Raspberry Pi Server Image 2">
+            </div>
+            <div class="slides">
+                <img src="https://i.ytimg.com/vi/rhZrshZb0Vs/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLC_VvrQxFdPTGCgDSVkE2_io1P3YA" alt="Raspberry Pi Server Image 3">
+            </div>
+            <div class="slides">
+                <img src="https://www.the-diy-life.com/wp-content/uploads/2021/06/Pi-Server-With-UPS-scaled.jpg" alt="Raspberry Pi Server Image 4">
+            </div>
+            <a class="prev" onclick="plusSlides(-1, 'slider1')">&#10094;</a>
+            <a class="next" onclick="plusSlides(1, 'slider1')">&#10095;</a>
+        </div>
+        <div class="project-details">
+            <h3>Description</h3>
+            <p>
+                I built a low-cost Raspberry Pi-based mini server to provide real-time monitoring of system performance, including details about resource usage and health. 
+                It can be converted into a VPN, ad blocker, private cloud, or private NAS, making it a great solution for home networking and small business needs.
+            </p>
+            <h3>Working</h3>
+            <p>
+                Monitors key metrics such as CPU load, memory usage, and disk space in real-time. The server features a built-in Uninterruptible Power Supply (UPS) to ensure continuous operation, complemented 
+                by an OLED display that provides immediate feedback on system performance.
+            </p>
+            <h3>Components Used</h3>
+            <ul>
+                <li><i class="fas fa-microchip"></i> Raspberry Pi 4 Model B</li>
+                <li><i class="fas fa-microchip"></i> MicroSD Card (32GB or larger)</li>
+                <li><i class="fas fa-plug"></i> Power Supply (5V, 3A)</li>
+                <li><i class="fas fa-hdd"></i> USB HDD or SSD for storage</li>
+                <li><i class="fas fa-desktop"></i> OLED Display (optional)</li>
+                <li><i class="fas fa-fan"></i> Cooling Fan (optional)</li>
+                <li><i class="fas fa-plug"></i> Network cable (Ethernet)</li> 
+            </ul>
+        </div>
+        <div class="project-details">
+            <h3>Key Features</h3>
+            <ul>
+                <li><i class="fas fa-shield-alt"></i> VPN functionality</li>
+                <li><i class="fas fa-ban"></i> Ad blocking capabilities</li>
+                <li><i class="fas fa-cloud"></i> Private cloud storage</li>
+                <li><i class="fas fa-tachometer-alt"></i> Real-time performance monitoring</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project">
+        <h2 class="project-title">WiFi Deauther</h2>
+        <div class="slider" id="slider2">
+            <div class="slides active-slide">
+                <img src="https://m.media-amazon.com/images/I/617T2JKnxiL._AC_UF1000,1000_QL80_.jpg" alt="WiFi Deauther Image 1">
+            </div>
+            <div class="slides">
+                <img src="https://miro.medium.com/v2/resize:fit:1400/1*IRws2f-SHyB5jZssVs6gBA.png" alt="WiFi Deauther Image 2">
+            </div>
+            <div class="slides">
+                <img src="https://miro.medium.com/v2/resize:fit:1400/1*wcr04XA1gUk27wCoGOFCWg.png" alt="WiFi Deauther Image 2">
+            </div>
+            <div class="slides">
+                <img src="https://www.kalitut.com/wp-content/uploads/2020/06/Baud-Rate.png" alt="WiFi Deauther Image 2">
+            </div>
+            <a class="prev" onclick="plusSlides(-1, 'slider2')">&#10094;</a>
+            <a class="next" onclick="plusSlides(1, 'slider2')">&#10095;</a>
+        </div>
+        <div class="project-details">
+            <h3>Description</h3>
+            <p>
+                The WiFi Deauther project enables users to test the security of WiFi networks by sending deauthentication packets to disconnect devices. 
+                This tool can be useful for penetration testing and understanding the vulnerabilities of wireless networks.
+            </p>
+            <h3>Working</h3>
+            <p>
+                The WiFi Deauther sends deauthentication packets to a targeted WiFi network, disconnecting devices attempting to connect. This allows users to simulate attacks and assess network security vulnerabilities, helping to improve defenses against potential threats. It enables analysis 
+                of device responses and testing of various attack vectors on WiFi protocols.
+            </p>
+            <h3>Components Used</h3>
+            <ul>
+                <li><i class="fas fa-microchip"></i> NodeMCU ESP8266</li>
+                <li><i class="fas fa-battery-three-quarters"></i> Battery Pack</li>
+                <li><i class="fas fa-tools"></i> Breadboard and Jumper Wires</li>
+                <li><i class="fas fa-desktop"></i> Computer</li>
+                <li><i class="fas fa-plug"></i> Power Supply</li>
+                <li><i class="fas fa-wifi"></i> WiFi Adapter (if necessary)</li>
+            </ul>
+        </div>
+        <div class="project-details">
+            <h3>Key Features</h3>
+            <ul>
+                <li><i class="fas fa-user-shield"></i> Penetration testing tool</li>
+                <li><i class="fas fa-network-wired"></i> Wireless network assessment</li>
+                <li><i class="fas fa-bullseye"></i> Targeted deauthentication</li>
+            </ul>
+        </div>
+    </div>
+    <div class="project">
+        <h2 class="project-title">Website Scraping Project</h2>
+        <div class="slider" id="slider4">
+            <div class="slides active-slide">
+                <img src="https://research.aimultiple.com/wp-content/uploads/2023/12/bright-data-amazon-scraper-612x252.png.webp" alt="Web Scraping Image 1">
+            </div>
+            <div class="slides">
+                <img src="https://miro.medium.com/v2/resize:fit:1200/1*Tuw7lC7sTSHU0LjM28ZJaw.jpeg" alt="Web Scraping Image 2">
+            </div>
+            <div class="slides">
+                <img src="https://i.ytimg.com/vi/DHqAQxgleoc/maxresdefault.jpg" alt="Web Scraping Image 2">
+            </div>
+            <a class="prev" onclick="plusSlides(-1, 'slider4')">&#10094;</a>
+            <a class="next" onclick="plusSlides(1, 'slider4')">&#10095;</a>
+        </div>
+        <div class="project-details">
+            <h3><i class="fas fa-info-circle"></i> Description</h3>
+            <p>Developed a web scraping tool to extract and analyze data from various websites using Python.</p>
+        </div>
+        <div class="project-details">
+            <h3><i class="fas fa-cogs"></i> Working</h3>
+            <p>Uses BeautifulSoup and Scrapy libraries to gather structured data from e-commerce sites for market analysis.</p>
+        </div>
+        <div class="project-details">
+            <h3><i class="fas fa-tools"></i> Components</h3>
+            <ul>
+                <li><i class="fas fa-code"></i> Python</li>
+                <li><i class="fas fa-archive"></i> BeautifulSoup</li>
+                <li><i class="fas fa-archive"></i> Scrapy</li>
+            </ul>
+        </div>
+        <div class="project-details">
+            <h3><i class="fas fa-star"></i> Key Features</h3>
+            <ul>
+                <li><i class="fas fa-check-circle"></i> User-friendly interface for easy data extraction.</li>
+                <li><i class="fas fa-chart-line"></i> Efficient data processing for rapid analysis.</li>
+                <li><i class="fas fa-file-alt"></i> Generates structured output in various formats (CSV, JSON).</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="currently-working-projects">
+        <h2><i class="fas fa-rocket"></i> Currently Working Projects</h2>
+        <div class="project-details">
+            <h3><i class="fas fa-keyboard"></i> USB Rubber Ducky</h3>
+            <p>Creating a customizable USB Rubber Ducky for automated penetration testing.</p>
+            <h4><i class="fas fa-cogs"></i> Working</h4>
+            <p>The USB Rubber Ducky simulates a keyboard, executing pre-defined payloads on target systems. It can be programmed to perform tasks such as data exfiltration, credential dumping, or executing scripts without user interaction.</p>
+        </div>
+        <div class="project-details">
+            <h3><i class="fas fa-microchip"></i> A.L.O.A Project</h3>
+            <p>Developing the A.L.O.A project to automate tasks using Raspberry Pi.</p>
+            <h4><i class="fas fa-cogs"></i> Working</h4>
+            <p>The A.L.O.A project integrates various sensors and devices with the Raspberry Pi to automate home tasks. It can control lighting, monitor environmental conditions, and execute scheduled tasks based on user preferences.</p>
+        </div>
+    </div>
+    
+    
+</div>
+
+<div class="footer">
+    <p>&copy; 2024 Hema. All rights reserved.</p>
+    <p>
+        <a href="https://github.com/Hema-Scripts"><i class="fab fa-github"></i> GitHub</a>
+        <a href="https://www.linkedin.com/in/hema-chandran-900a69281/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <a href="./404.html"><i class="fab fa-instagram"></i> Instagram</a>
+    </p>
+</div>
+
+<script>
+    let slideIndex = 1;
+
+    function plusSlides(n, sliderId) {
+        showSlides(slideIndex += n, sliderId);
+    }
+
+    function showSlides(n, sliderId) {
+        let i;
+        const slides = document.getElementById(sliderId).getElementsByClassName("slides");
+        if (n > slides.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = slides.length }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+        }
+        slides[slideIndex - 1].style.display = "block";  
+    }
+
+    showSlides(slideIndex, 'slider1'); // Show first slider on load
+    showSlides(slideIndex, 'slider2'); // Show second slider on load
+</script>
+
+</body>
+</html>

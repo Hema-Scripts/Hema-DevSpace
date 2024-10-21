@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Terminal</title>
+  <style>
+    body {
+      background-color: #1e1e1e;
+      color: #00ff00;
+      font-family: 'Courier New', Courier, monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+      position: relative; /* Allow positioning of children */
+    }
+
+    canvas {
+      position: absolute; /* Position the canvas absolutely */
+      top: 0;
+      left: 0;
+      width: 100%; /* Cover full width */
+      height: 100%; /* Cover full height */
+      z-index: -1; /* Make it the background */
+    }
+
+    .terminal {
+      background-color: rgba(0, 0, 0, 0.8); /* Transparent to see Matrix code in background */
+      border-radius: 10px;
+      padding: 20px;
+      width: 80%;
+      max-width: 800px;
+      height: 50%;
+      overflow-y: auto;
+      box-shadow: 0px 0px 20px #00ff00;
+      position: relative; /* Keep terminal on top of canvas */
+      z-index: 1; /* Ensure terminal is above canvas */
+    }
+
+    .input-area {
+      display: flex;
+    }
+
+    .input-area input {
+      background-color: transparent;
+      border: none;
+      color: #00ff00;
+      width: 100%;
+      font-size: 18px;
+    }
+
+    .input-area input:focus {
+      outline: none;
+    }
+
+    .response {
+      color: #00ff00;
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="matrix"></canvas>
+
+  <div class="terminal">
+    <div id="output" class="response">Welcome to Hema's Terminal. Type 'help' for commands.</div>
+    <div class="input-area">
+      <span>&gt;&nbsp;</span>
+      <input type="text" id="commandInput" autocomplete="off">
+    </div>
+  </div>
+
+  <script>
+    const canvas = document.getElementById("matrix");
+    const ctx = canvas.getContext("2d");
+
+    // Making the canvas full screen
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas(); // Call once to set initial size
+
+    // Matrix characters - random Katakana characters, and some English letters
+    const matrixChars = "アァカサタナハマヤャラワガザダバパ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const characters = matrixChars.split("");
+    const fontSize = 16;
+    const columns = canvas.width / fontSize; // Number of columns for the rain
+    const drops = [];
+
+    // Initialize drops
+    for (let x = 0; x < columns; x++) {
+      drops[x] = 1;
+    }
+
+    function drawMatrix() {
+      // Black background with slight opacity
+      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      // Set the color and font
+      ctx.fillStyle = "#00ff00"; // Matrix green
+      ctx.font = fontSize + "px monospace";
+
+      // Loop over drops and draw the characters
+      for (let i = 0; i < drops.length; i++) {
+        const text = characters[Math.floor(Math.random() * characters.length)];
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        // Reset the drop if it's off the screen or randomly
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+
+        drops[i]++;
+      }
+    }
+
+    setInterval(drawMatrix, 35); // Run matrix effect continuously
+
+    // Terminal functionality
+    const output = document.getElementById('output');
+    const input = document.getElementById('commandInput');
+
+    const commands = {
+      'help': 'Available commands: help, projects, contact, about',
+      'projects': 'Redirecting to Projects... <a href="projects.html" style="color: #00ff00;">Click here</a>',
+      'contact': 'Redirecting to Contact... <a href="contact.html" style="color: #00ff00;">Click here</a>',
+      'about': 'Redirecting to About... <a href="about.html" style="color: #00ff00;">Click here</a>'
+    };
+
+    input.addEventListener('keydown', function (event) {
+      if (event.key === 'Enter') {
+        const command = input.value.trim().toLowerCase();
+        input.value = '';
+
+        if (commands[command]) {
+          output.innerHTML += `<div class="response">&gt; ${command}</div>`;
+          output.innerHTML += `<div class="response">${commands[command]}</div>`;
+        } else {
+          output.innerHTML += `<div class="response">&gt; ${command}</div>`;
+          output.innerHTML += `<div class="response">Unknown command: ${command}</div>`;
+        }
+
+        output.scrollTop = output.scrollHeight; // Scroll to the bottom
+      }
+    });
+
+    // Handle window resizing to adjust the canvas size
+    window.addEventListener('resize', resizeCanvas);
+  </script>
+</body>
+</html>

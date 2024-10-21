@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificates - Hema</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #2e1a47, #5c3b7c, #f25f6c); /* Added gradient colors */
+            color: #fff;
+            animation: backgroundAnimation 15s ease infinite; /* Background animation */
+        }
+
+        @keyframes backgroundAnimation {
+            0% { background: linear-gradient(135deg, #2e1a47, #5c3b7c, #f25f6c); }
+            50% { background: linear-gradient(135deg, #5c3b7c, #f25f6c, #2e1a47); }
+            100% { background: linear-gradient(135deg, #2e1a47, #5c3b7c, #f25f6c); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            text-align: center;
+            border: 2px solid rgba(255, 204, 0, 0.5); /* Gold border */
+            border-radius: 10px;
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background for the container */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8); /* Shadow for the container */
+        }
+
+        h1 {
+            color: #ffcc00; /* Gold Title */
+            font-size: 36px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Shadow effect */
+            animation: fadeIn 1s ease; /* Fade in animation */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin: 0 0 20px;
+            animation: slideIn 0.8s ease forwards; /* Slide in animation */
+            opacity: 0; /* Initial opacity */
+            animation-delay: 0.5s; /* Delay before starting */
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Back Button Styling */
+        .back-btn {
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            background-color: #ffcc00;
+            color: #4B0082;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s, box-shadow 0.3s;
+            margin: 20px;
+        }
+
+        .back-btn:hover {
+            background-color: #ffcc99;
+            box-shadow: 0 4px 15px rgba(255, 204, 0, 0.5); /* Light shadow on hover */
+        }
+
+        /* Certificate Grid Styling */
+        .certificate-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .certificate-card {
+            background-color: rgba(26, 26, 26, 0.9); /* Semi-transparent dark grey */
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7); /* Dark shadow */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth animations */
+            position: relative; /* For the pseudo-element effect */
+            opacity: 0; /* Initial opacity */
+            animation: fadeInUp 0.6s forwards; /* Fade in up animation */
+        }
+
+        @keyframes fadeInUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .certificate-card:hover {
+            transform: scale(1.05) rotateY(10deg); /* Scale and slightly rotate card on hover */
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.8); /* Darker shadow on hover */
+        }
+
+        .certificate-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease; /* Scale effect */
+        }
+
+        .certificate-card:hover img {
+            transform: scale(1.1); /* Scale image on hover */
+        }
+
+        .certificate-card h2 {
+            color: #ffcc00; /* Gold text for the titles */
+            font-size: 24px;
+            padding: 20px;
+            text-align: center;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Title shadow */
+            transition: color 0.3s ease; /* Color transition */
+        }
+
+        .certificate-card:hover h2 {
+            color: #ffcc99; /* Light gold on hover */
+        }
+
+        .certificate-card p {
+            padding: 0 15px 15px 15px;
+            color: #fff;
+            font-size: 16px;
+            text-align: center;
+            transition: color 0.3s ease; /* Color transition */
+        }
+
+        .certificate-card:hover p {
+            color: #ffcc99; /* Light gold on hover */
+        }
+
+        /* Responsive Media Queries */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            .certificate-card h2 {
+                font-size: 20px;
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 24px;
+            }
+
+            .certificate-card h2 {
+                font-size: 18px;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <button onclick="window.history.back()" class="back-btn">Back</button>
+    <h1>My Certifications</h1>
+    <p>Here are some of the professional certifications I have achieved over the years.</p>
+
+    <div class="certificate-grid">
+        <!-- Certificate 1 -->
+        <div class="certificate-card">
+            <img src="../certificates/EHE.jpg" alt="Ethical Hacking Certificate">
+            <h2>Ethical Hacking Essentials (EHE) - EC-Council</h2>
+            <p>A certification covering the basics of ethical hacking, network security, and vulnerability analysis, aimed at providing a foundation for penetration testing and cybersecurity roles.</p>
+        </div>
+
+        <!-- Certificate 2 -->
+        <div class="certificate-card">
+            <img src="../certificates/data_analytics.png" alt="Google Data Analytics Certificate">
+            <h2>Google Data Analytics Professional Certificate</h2>
+            <p>A comprehensive course covering data analytics tools such as SQL, R, and data visualization, equipping learners with the skills to interpret and analyze data effectively.</p>
+        </div>
+
+        <!-- Certificate 3 -->
+        <div class="certificate-card">
+            <img src="../certificates/cisco_networks.png" alt="CCNA Certificate">
+            <h2>CCNA v7 Introduction to Networks</h2>
+            <p>Acquired foundational knowledge of networking principles, covering essential topics such as IP addressing, subnetting, routing, switching, and key network protocols. This course provided hands-on experience with configuring network devices and troubleshooting common networking issues.</p>
+        </div>
+
+        <!-- Certificate 4 -->
+        <div class="certificate-card">
+            <img src="../certificates/cisco_security.jpg" alt="CCNA Security Certificate">
+            <h2>CCNA v7 Enterprise Networking, Security, and Automation</h2>
+            <p>Hands-on, lab-oriented training in advanced networking, security, and automation with Cisco solutions.</p>
+        </div>
+
+        <!-- Certificate 5 -->
+        <div class="certificate-card">
+            <img src="../certificates/AI.png" alt="AI Certification">
+            <h2>Artificial Intelligence Training and Certification</h2>
+            <p>Certified in Artificial Intelligence, proficient in developing AI models and algorithms for intelligent decision-making and automation.</p>
+        </div>
+
+        <!-- Certificate 6 -->
+        <div class="certificate-card">
+            <img src="../certificates/Wifi.png" alt="Metasploit Framework Certificate">
+            <h2>Project Presentation</h2>
+            <p>WiFi Deauther Project Presentation: Demonstrated the creation of a WiFi deauthentication tool using NodeMCU ESP8266, showcasing how network vulnerabilities can be exploited and how to defend against such attacks.</p>
+        </div>
+
+        <!-- Certificate 7 -->
+        <div class="certificate-card">
+            <img src="../certificates/Web_Development.png" alt="Cybersecurity Certificate">
+            <h2>Web development</h2>
+            <p>Certified in Web Development, skilled in building responsive websites.</p>
+        </div>
+        <!-- Certificate 8 -->
+        <div class="certificate-card">
+            <img src="../certificates/AWS.png" alt="AWS Introduction Certificate">
+            <h2>AWS Introduction Certificate</h2>
+            <p>A foundational course in Amazon Web Services, covering cloud computing concepts, core services, and deployment of applications in the cloud.</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
