@@ -1,0 +1,57 @@
+{
+  "expo": {
+    "name": "Expense Tracker Pro",
+    "slug": "expense-tracker-pro",
+    "version": "1.0.0",
+    "scheme": "expensetrackerpro",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#00C851"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "This app uses the camera to capture receipt images.",
+        "NSPhotoLibraryAddUsageDescription": "This app saves exported reports to your photo library.",
+        "NSPhotoLibraryUsageDescription": "This app accesses your photo library to select receipt images.",
+        "NSCalendarsUsageDescription": "Used for scheduling reminders (if enabled).",
+        "NSMicrophoneUsageDescription": "Not used."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#00C851"
+      },
+      "permissions": [
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE",
+        "READ_MEDIA_IMAGES",
+        "ACCESS_MEDIA_LOCATION",
+        "POST_NOTIFICATIONS"
+      ]
+    },
+    "web": {
+      "bundler": "metro",
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-camera",
+      "expo-image-picker",
+      "expo-mail-composer",
+      "expo-document-picker",
+      "expo-file-system",
+      "expo-sharing"
+    ],
+    "extra": {
+      "exchangeRateApiKey": "YOUR_API_KEY"
+    }
+  }
+}
